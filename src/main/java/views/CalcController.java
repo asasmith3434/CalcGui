@@ -1,12 +1,7 @@
-
-
-
-
 package views;
 
-
-
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -32,15 +27,19 @@ public class CalcController {
 
     @FXML
     void sumall(ActionEvent event) {
-    	DoubleProperty first= null;
-    	DoubleProperty second= null;
+    	DoubleProperty first = new SimpleDoubleProperty();
+    	DoubleProperty second = new SimpleDoubleProperty();
     	
-    	first.set(Integer.parseInt(num1.getText()));
-    	second.set(Integer.parseInt(num2.getText()));
+    	setModel(new CalcModel());
+    	
+    	first.set(Double.parseDouble(num1.getText()));
+    	second.set(Double.parseDouble(num2.getText()));
     	
     	DoubleProperty output= model.sums(first, second);
     	
-    	sumtext.setText(output.toString());
+    	String sum = Double.toString(output.doubleValue());
+    	
+    	sumtext.setText(sum);
     }
 
 }
