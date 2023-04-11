@@ -11,17 +11,17 @@
    <bottom>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#sumall" text="Calculate" />
+            <Button id = "button" mnemonicParsing="false" onAction="#sumall" text="Calculate" />
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Output: " />
-            <Text fx:id="sumtext" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <Text id = "sumtext" fx:id="sumtext" strokeType="OUTSIDE" strokeWidth="0.0" />
          </children>
       </HBox>
    </bottom>
    <left>
-      <TextField fx:id="num1" text="First Num" BorderPane.alignment="CENTER" />
+      <TextField id = "num1" fx:id="num1" onMouseClicked = "#onWrite1" text="First Num" BorderPane.alignment="CENTER" />
    </left>
    <right>
-      <TextField fx:id="num2" text="Second Num" BorderPane.alignment="CENTER" />
+      <TextField id = "num2" fx:id="num2" onMouseClicked = "#onWrite2" text="Second Num" BorderPane.alignment="CENTER" />
    </right>
    <center>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="+" BorderPane.alignment="CENTER" />

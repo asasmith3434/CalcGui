@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import models.CalcModel;
 
@@ -27,19 +28,34 @@ public class CalcController {
 
     @FXML
     void sumall(ActionEvent event) {
-    	DoubleProperty first = new SimpleDoubleProperty();
-    	DoubleProperty second = new SimpleDoubleProperty();
-    	
-    	setModel(new CalcModel());
-    	
-    	first.set(Double.parseDouble(num1.getText()));
-    	second.set(Double.parseDouble(num2.getText()));
-    	
-    	DoubleProperty output= model.sums(first, second);
-    	
-    	String sum = Double.toString(output.doubleValue());
-    	
-    	sumtext.setText(sum);
+    	if(num1.getText().equals("First Num") || num1.getText().equals("") || num2.getText().equals("Second Num") || num2.getText().equals("")) {
+	    	sumtext.setText("null");
+    	}
+    	else {
+	    	DoubleProperty first = new SimpleDoubleProperty();
+	    	DoubleProperty second = new SimpleDoubleProperty();
+	    	
+	    	setModel(new CalcModel());
+	    	
+	    	first.set(Double.parseDouble(num1.getText()));
+	    	second.set(Double.parseDouble(num2.getText()));
+	    	
+	    	DoubleProperty output= model.sums(first, second);
+	    	
+	    	String sum = Double.toString(output.doubleValue());
+	    	
+	    	sumtext.setText(sum);
+    	}
+    }
+    
+    @FXML
+    void onWrite1(MouseEvent event) {
+    	num1.clear();
+    }
+    
+    @FXML
+    void onWrite2(MouseEvent event) {
+    	num2.clear();
     }
 
 }
